@@ -1,0 +1,39 @@
+public class cubeBehaviour : MonoBehaviour
+{
+    float X; //A,D
+    float Z; //W,S
+    public Vector3 direção;
+    //public LayerMask layerMask;
+    public float velocidade;
+   // public bool noChão;
+    //public float checkdoChão;
+    //public Vector3 checkdaPosição;
+    public CharacterController controller;
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        X = Input.GetAxis("Horizontal");
+        Z = Input.GetAxis("Vertical");
+        direção = transform.right * X + transform.forward * Z;
+
+        controller.Move(direção * velocidade * Time.deltaTime);
+
+
+
+
+
+
+        /*var groundcheck = Physics.OverlapSphere(transform.position + checkdaPosição, checkdoChão, layerMask);
+        if (groundcheck.Length != 0)
+        {
+            noChão = true;
+        } else
+        {
+            noChão = false;        }*/
+    }
+}
